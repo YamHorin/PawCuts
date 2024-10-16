@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.signUpFragments.SignUpMoreDetailsFragment"
+    android:background="@color/white"
+
+    >
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+android:id="@+id/SingUpMoreDetailsFragment_FAB_goBack"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentStart="true"
+android:layout_marginStart="@dimen/SmallSpace"
+android:layout_marginTop="@dimen/SmallSpace"
+android:clickable="true"
+android:backgroundTint="@color/white"
+android:contentDescription="@string/click_here_to_go_back_to_the_start_screen"
+android:src="@drawable/baseline_chevron_left_24" />
+
+
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/SingUpMoreDetailsFragment_TIL_MoreInfo"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    app:endIconMode="clear_text"
+    android:layout_below="@id/SingUpMoreDetailsFragment_FAB_goBack"
+    android:layout_margin="@dimen/SmallSpace"
+    android:layout_width="match_parent"
+    android:hint="@string/more_details_optional"
+    android:layout_height="@dimen/UserInfoSpace"
+    app:hintAnimationEnabled="true"
+    >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SingUpMoreDetailsFragment_TIET_MoreInfo"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:minLines="2"
+        />
+</com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>
+

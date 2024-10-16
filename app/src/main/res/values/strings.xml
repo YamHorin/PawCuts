@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Paw Cuts</string>
+    <string name="sing_in">sing in</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sing_up">Sing Up</string>
+    <string name="welcome_to_pawcuts">Welcome to Paw Cuts</string>
+    <string name="title_activity_login_users_who_are_in_the_system">
+        LoginUsersWhoAreInTheSystemActivity
+    </string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="sign_in_txt">Sign in</string>
+    <string name="if_you_don_t_have_a_account_sing_up_now">if you don\'t have a account sign up now</string>
+    <string name="click_here_to_go_back_to_the_start_screen">click here to go back to the start screen</string>
+
+    <string name="submit">submit</string>
+    <string name="if_you_don_t_have_a_account_sign_up_now">if you don\'t have an account, sign up now\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">next</string>
+    <string name="i_am_a_pet_barber">i am a pet barber</string>
+    <string name="i_am_a_pet_owner">i am a pet owner</string>
+    <string name="name">name</string>
+    <string name="phone">phone</string>
+    <string name="i_am_a_dog_barber_only">i am a dog barber only</string>
+    <string name="i_am_a_cat_barber_only">i am a cat barber only</string>
+    <string name="both">both</string>
+    <string name="address">address</string>
+    <string name="more_details_optional">More details (optional):</string>
+    <string name="pet_name">pet name</string>
+    <string name="i_am_a_dog_owner">i am a dog owner</string>
+    <string name="i_am_a_cat_owner">i am a cat owner</string>
+    <string name="price_per_meeting">Price per meeting</string>
+    <string name="sign_up_with_google">Sign up With Google</string>
+    <string name="sign_up">Sign up</string>
+    <string name="please_select_your_user_type">please select your user type:</string>
+    <string name="click_to_put_a_profile_picture">click to put a profile picture</string>
+    <string name="user_profile">user profile</string>
+    <string name="log_out">log out</string>
+    <string name="favorites">favorites</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="calendar">calendar</string>
+    <string name="reviews">reviews</string>
+    <string name="rating_1_5">rating(1-5)</string>
+    <string name="the_review">the review:</string>
+    <string name="name_review">name: review</string>
+    <string name="barber_name">barber name</string>
+    <string name="_2_5km">2.5km</string>
+    <string name="get_a_map_of_all_the_pet_barber">get a map of all the pet barber</string>
+    <string name="_10_00_11_00">10:00-11:00</string>
+    <string name="sam_cat">sam (cat)</string>
+    <string name="available">available</string>
+    <string name="a_place_with_20_years_of_experience_in_the_field_of_dog_cat_grooming_guarantees_you_the_best_service">A place with 20 years of experience in the field of dog / cat grooming, guarantees you the best service</string>
+    <string name="write_a_review">write a review</string>
+    <string name="book_an_appointment">book an appointment</string>
+    <string name="_06_06_2025_12_00_13_00">06.06.2025 12:00-13:00</string>
+    <string name="_130">130₪</string>
+</resources>

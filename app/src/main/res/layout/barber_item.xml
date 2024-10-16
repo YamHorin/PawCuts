@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/barberItemFragment_CV_data"
+        android:layout_width="match_parent"
+        android:layout_height="142dp"
+        android:layout_marginVertical="@dimen/reviewItem_Vertical"
+        android:layout_marginHorizontal="@dimen/SmallSpace"
+        android:elevation="8dp"
+        app:cardCornerRadius="36dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/space_RL">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/barberItemFragment_MTV_availability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_RL"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/barberItem_cv_calender"
+                android:fontFamily="@font/inter_medium"
+                android:text="06.06.2025 12:00-13:00"
+                android:textSize="11sp"></com.google.android.material.textview.MaterialTextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/barberItem_cv_calender"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:elevation="10dp"
+                app:cardElevation="10dp"
+                android:layout_marginStart="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                >
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/schedule"
+                    ></androidx.appcompat.widget.AppCompatImageView>
+            </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/barberItemFragment_IMG_favorite"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/space_RL"
+                android:layout_marginEnd="@dimen/space_RL"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/heart_item_empty" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/barberItemFragment_MTV_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="77dp"
+                android:layout_toRightOf="@id/barberItem_cv_price"
+                android:fontFamily="@font/inter_medium"
+                android:text="130₪"
+                android:textSize="12sp"></com.google.android.material.textview.MaterialTextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/barberItem_cv_price"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="10dp"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="75dp"
+                >
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/dollar"
+                    ></androidx.appcompat.widget.AppCompatImageView>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/barberItemFragment_MTV_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="77dp"
+                android:layout_toRightOf="@id/barberItem_cv_location"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/_2_5km"
+                android:textSize="12sp"></com.google.android.material.textview.MaterialTextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/barberItem_cv_location"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="10dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="75dp"
+                >
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/location"
+                ></androidx.appcompat.widget.AppCompatImageView>
+            </androidx.cardview.widget.CardView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/barberItemFragment_MTV_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/barber_name"
+                android:textSize="@dimen/title_size" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/barberItemFragment_RTNG_rating"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="41dp"
+                android:layout_marginEnd="144dp"
+                android:isIndicator="true"
+                android:progressTint="@color/rating_first"
+                android:scaleX="0.4"
+                android:scaleY="0.4"
+                android:secondaryProgressTint="@color/rating_second"
+                android:stepSize="0.5"
+                tools:rating="4" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/barberItemFragment_IMG_poster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                tools:src="@drawable/baseline_person_24" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

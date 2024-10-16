@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.signUpFragments.ProgressBarSingUpScreenFragment">
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/FragmentProgressBarSingUpScreen_EFAB_next"
+        android:layout_width="@dimen/Button_Login_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="80dp"
+        android:clickable="true"
+        android:shadowRadius="@integer/google_play_services_version"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/purple400"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/FragmentProgressBarSingUpScreen_SIV_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_below="@id/FragmentProgressBarSingUpScreen_EFAB_next"
+        app:srcCompat="@drawable/dot_part1" />
+
+</RelativeLayout>

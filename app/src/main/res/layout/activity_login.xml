@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".LoginActivity">
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/LoginActivity_BUTTON_SingIn"
+        android:layout_width="@dimen/Button_Login_width"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/LoginActivity_MTV_INFO"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:clickable="true"
+        android:shadowRadius="@integer/google_play_services_version"
+        android:text="@string/sign_in"
+        app:backgroundTint="@color/purple400"
+        android:textColor="@color/white"
+
+     />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/LoginActivity_BUTTON_SingUp"
+        android:layout_width="@dimen/Button_Login_width"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:text="@string/sign_up"
+        android:shadowRadius="@integer/google_play_services_version"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/purple400"
+        android:layout_below="@id/LoginActivity_BUTTON_SingIn"
+        android:layout_marginTop="@dimen/SmallSpace"
+
+        />
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/LoginActivity_ACIV_imageDoggy"
+        android:layout_width="250dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="35dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/LoginActivity_MTV_Welcome"
+        android:layout_width="226dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/LoginActivity_ACIV_imageDoggy"
+        android:layout_centerInParent="true"
+        android:gravity="top"
+        android:text="@string/welcome_to_pawcuts"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold"
+        app:fontFamily="@font/inter_medium" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/LoginActivity_MTV_INFO"
+        android:layout_width="226dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/LoginActivity_MTV_Welcome"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textStyle="bold"
+
+        android:text="your pet the best care in just one click"
+        android:textSize="15sp"
+        app:fontFamily="@font/inter_medium" />
+
+
+
+</RelativeLayout>

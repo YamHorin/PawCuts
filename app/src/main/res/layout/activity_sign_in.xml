@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignInActivity">
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/SignInActivity_EFAB_SignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in"
+        app:icon="@drawable/baseline_person_24"
+        app:shapeAppearance="@style/FirebaseUI"
+        android:layout_below="@id/SignInActivity_LL"
+        android:layout_margin="@dimen/SmallSpace"
+        />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/signInActivity_EFAB_SignInGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SignInActivity_EFAB_SignIn"
+        android:layout_margin="@dimen/SmallSpace"
+        android:text="Sign in With Google"
+        app:icon="@drawable/googleg_disabled_color_18"
+        app:shapeAppearance="@style/FirebaseUI" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/SignInActivity_MTV_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="153dp"
+        android:gravity="top"
+        android:text="@string/sign_in"
+        android:textSize="@dimen/BigTitle"
+        android:textStyle="bold"
+        app:fontFamily="@font/poppins_semibold" />
+
+    <LinearLayout
+        android:id="@+id/SignInActivity_LL"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_margin="@dimen/SmallSpace"
+        android:layout_below="@id/SignInActivity_MTV_title"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SignInActivity_TIL_Email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/prompt_email"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SignInActivity_TIET_Email"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SignInActivity_TIL_Password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="password_toggle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/prompt_password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SignInActivity_TIET_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/SignInActivity_MTV_SignUp"
+        android:layout_below="@id/signInActivity_EFAB_SignInGoogle"
+        android:layout_margin="@dimen/SmallSpace"
+        android:contextClickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:textSize="15sp"
+        android:shadowColor="@color/white"
+        android:text="@string/if_you_don_t_have_a_account_sign_up_now"
+        android:backgroundTint="@color/white"
+     />
+</RelativeLayout>

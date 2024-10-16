@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/review_CV_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/reviewItem_Vertical"
+        android:layout_marginEnd="@dimen/space_from_left_review_Item"
+        android:elevation="8dp"
+        app:cardCornerRadius="36dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/space_RL"
+            android:layout_marginEnd="@dimen/space_RL"
+            android:layout_marginBottom="@dimen/space_RL">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/review_MTV_name"
+                android:layout_width="216dp"
+                android:layout_height="31dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/name_review"
+                android:textSize="@dimen/stringSize" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/review_RTNG_rating"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="-10dp"
+                android:isIndicator="true"
+                android:progressTint="@color/rating_first"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:secondaryProgressTint="@color/rating_second"
+                android:stepSize="0.5"
+                tools:rating="4" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

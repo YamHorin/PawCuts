@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Green">#005E00</color>
+    <color name="blue">#000050</color>
+    <color name="purple400">#66486A</color>
+    <color name="colorPrimary">#6A0DAD</color>
+    <color name="colorAccent">#D1C4E9</color>
+    <color name="heart_color">#DC1D1D</color>
+    <color name="rating_first">#FFEE58</color>
+    <color name="rating_second">#FFA726</color>
+
+    rating_second
+
+</resources>

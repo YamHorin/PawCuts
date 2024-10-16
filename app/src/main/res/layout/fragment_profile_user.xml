@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.petOwnerFragments.ProfileUserFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ProfileUserFragment_MTV_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/user_profile"
+        android:layout_marginVertical="@dimen/SmallSpace"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold"
+        app:fontFamily="@font/inter_medium">
+
+    </com.google.android.material.textview.MaterialTextView>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ProfileUserFragment_ACIV_profile"
+        android:layout_width="@dimen/photoSizeMedium"
+        android:layout_height="@dimen/photoSizeMedium"
+        android:src="@drawable/add_a_photo"
+        android:clickable="true"
+        android:contentDescription="@string/click_to_put_a_profile_picture"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ProfileUserFragment_MTV_title"
+        />
+
+
+    <!--    LinearLayout-->
+    <LinearLayout
+        android:id="@+id/ProfileUserFragment_LL"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_margin="@dimen/SmallSpace"
+        android:layout_below="@id/ProfileUserFragment_ACIV_profile"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/name"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIET_Name"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_Phone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            app:prefixText="+972"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/phone"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIEL_Phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_Address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/address"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIEL_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_price"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/price_per_meeting"
+            app:suffixText="$"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIET_price"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+    <RadioGroup
+        android:id="@+id/ProfileUserFragment_RG"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/SmallSpace"
+        android:layout_below="@id/ProfileUserFragment_LL"
+        >
+
+        <RadioButton
+            android:id="@+id/ProfileUserFragment_RB_DogBarber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/i_am_a_dog_barber_only"
+            android:textStyle="bold"
+            />
+
+
+        <RadioButton
+            android:id="@+id/ProfileUserFragment_RB_CatBarber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/i_am_a_cat_barber_only"
+            android:textStyle="bold"
+            />
+        <RadioButton
+            android:id="@+id/ProfileUserFragment_RB_Both"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/both"
+            android:textStyle="bold"
+            />
+    </RadioGroup>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/LoginActivity_BUTTON_SingIn"
+        android:layout_width="@dimen/Button_Login_width"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/ProfileUserFragment_RG"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:clickable="true"
+        android:shadowRadius="@integer/google_play_services_version"
+        android:text="@string/fui_button_text_save"
+        android:backgroundTint="@color/Green"
+        android:textColor="@color/white"
+
+        />
+
+</RelativeLayout>

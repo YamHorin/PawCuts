@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.barberFragments.menuBarBarberFragment">
+
+
+
+    <LinearLayout
+        android:id="@+id/navigation_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/blue">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navigation_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/calendar"
+            app:icon="@drawable/calendar"
+            app:iconGravity="textTop"
+            android:gravity="center"
+            android:padding="8dp"
+            app:rippleColor="@color/colorAccent"
+            android:backgroundTint="@android:color/transparent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navigation_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/profile"
+            app:icon="@drawable/ic_profile"
+            app:iconGravity="textTop"
+            android:gravity="center"
+            android:padding="8dp"
+            app:rippleColor="@color/colorAccent"
+            android:backgroundTint="@android:color/transparent" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navigation_favorites"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/reviews"
+            app:icon="@drawable/reviews"
+            app:iconGravity="textTop"
+            android:gravity="center"
+            android:padding="8dp"
+            app:rippleColor="@color/colorAccent"
+            android:backgroundTint="@android:color/transparent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navigation_clubs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/log_out"
+            app:icon="@drawable/logout__1_"
+            app:iconGravity="textTop"
+            android:gravity="center"
+            android:padding="8dp"
+            app:rippleColor="@color/colorAccent"
+            android:backgroundTint="@android:color/transparent" />
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

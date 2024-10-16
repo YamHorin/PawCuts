@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.petOwnerFragments.FindPetBarbersFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/FindPetBarbersFragment_RV"
+        android:layout_below="@id/FindPetBarbersFragment_FAB_locationMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/barber_item" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FindPetBarbersFragment_FAB_locationMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/SmallSpace"
+        android:clickable="true"
+        android:contentDescription="@string/get_a_map_of_all_the_pet_barber"
+        app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator"
+        android:backgroundTint="@color/white"
+        app:tint="@color/black"
+        android:src="@drawable/location" />
+
+</RelativeLayout>

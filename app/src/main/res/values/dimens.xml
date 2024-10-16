@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sizeTwoButtons">100dp</dimen>
+    <dimen name="SmallSpace">20dp</dimen>
+    <dimen name="Button_Login_width">220dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="TitleConnerTopSpace">152dp</dimen>
+    <dimen name="TitleConnerSideSpace">56dp</dimen>
+    <dimen name="BigTitle">35sp</dimen>
+    <dimen name="photoSizeMedium">120dp</dimen>
+    <dimen name="spaceSize">40dp</dimen>
+    <dimen name="UserInfoSpace">160dp</dimen>
+    <dimen name="UserInfoSpaceLARGE">200dp</dimen>
+    <dimen name="stringSize">15sp</dimen>
+    <dimen name="space_RL">10dp</dimen>
+    <dimen name="reviewItem_Vertical">5dp</dimen>
+    <dimen name="space_from_right_review_Item">20dp</dimen>
+    <dimen name="space_from_left_review_Item">5dp</dimen>
+</resources>

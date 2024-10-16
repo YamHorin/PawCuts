@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.signUpFragments.SignUpAllUsersFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/SingUpAllUsersFragment_FAB_goBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/SmallSpace"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:clickable="true"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/click_here_to_go_back_to_the_start_screen"
+        android:src="@drawable/baseline_chevron_left_24" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/SingUpAllUsersFragment_MTV_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:gravity="top"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/BigTitle"
+        android:textStyle="bold"
+        app:fontFamily="@font/poppins_semibold" />
+
+    <LinearLayout
+        android:id="@+id/SingUpAllUsersFragment_LL_users"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_margin="@dimen/SmallSpace"
+        android:layout_below="@id/SingUpAllUsersFragment_FAB_goBack"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SingUpAllUsersFragment_TIL_Email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/prompt_email"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SingUpAllUsersFragment_TIET_Email"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/SingUpAllUsersFragment_TIL_Password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="password_toggle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/prompt_password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SingUpAllUsersFragment_TIEL_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
+
+    <RadioGroup
+        android:id="@+id/SingUpAllUsersFragment_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/SmallSpace"
+        android:layout_below="@id/SingUpAllUsersFragment_LL_users"
+        >
+
+        <RadioButton
+            android:id="@+id/SingUpAllUsersFragment_RB_PetOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/i_am_a_pet_owner"
+            android:textStyle="bold"
+            />
+
+
+        <RadioButton
+            android:id="@+id/SingUpAllUsersFragment_RB_PetBarber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/i_am_a_pet_barber"
+            android:textStyle="bold"
+            />
+    </RadioGroup>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/SingUpAllUsersFragment_MTV_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_below="@id/SingUpAllUsersFragment_LL"
+        app:fontFamily="@font/poppins_semibold"
+        android:layout_centerHorizontal="true"
+        ></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/SingUpAllUsersFragment_EFAB_SignUpGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SingUpAllUsersFragment_MTV_or"
+        android:layout_margin="@dimen/SmallSpace"
+        android:layout_marginBottom="@dimen/SmallSpace"
+        android:text="@string/sign_up_with_google"
+        app:icon="@drawable/googleg_disabled_color_18"
+        app:shapeAppearance="@style/FirebaseUI" />
+
+</RelativeLayout>

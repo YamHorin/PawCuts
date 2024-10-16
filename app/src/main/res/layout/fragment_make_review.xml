@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.petOwnerFragments.appointmentFragments.makeReviewFragment"
+    android:background="@color/white">
+
+   <LinearLayout
+       android:id="@+id/makeReviewFragment_LL"
+       android:layout_width="match_parent"
+       android:layout_height="250dp"
+       android:orientation="vertical">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/makeReviewFragment_TIL_rating"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="@string/rating_1_5"
+        android:layout_marginHorizontal="@dimen/SmallSpace"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/makeReviewFragment_TIET_rating"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/SingUpMoreDetailsFragment_TIL_MoreInfo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        android:layout_marginHorizontal="@dimen/SmallSpace"
+        android:layout_width="match_parent"
+        android:hint="@string/the_review"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        app:hintAnimationEnabled="true"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SingUpMoreDetailsFragment_TIET_MoreInfo"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:minLines="2"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+   </LinearLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/LoginActivity_BUTTON_SingIn"
+        android:layout_width="@dimen/Button_Login_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_below="@id/makeReviewFragment_LL"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:shadowRadius="@integer/google_play_services_version"
+        android:text="@string/fui_button_text_save"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/Green"
+
+        />
+
+</RelativeLayout>
