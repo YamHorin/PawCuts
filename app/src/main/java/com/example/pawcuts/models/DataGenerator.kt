@@ -14,7 +14,7 @@ object DataGenerator {
     fun generateBarberList():List<Barber>
     {
         val gson: Gson = Gson()
-        var barbers = mutableListOf<Barber>()
+        val barbers = mutableListOf<Barber>()
             barbers.add(
                 Barber.Builder()
                     .name("Jose Joshua")

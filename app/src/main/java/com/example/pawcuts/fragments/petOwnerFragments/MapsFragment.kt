@@ -58,7 +58,7 @@ class MapsFragment : Fragment() {
                 Log.w("Data Error", "Failed to read value.", error.toException())            }
 
         })
-        val supportMapFragment =
+        var supportMapFragment =
             (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)
             supportMapFragment!!.getMapAsync { googleMap ->
                 googleMapObj = googleMap

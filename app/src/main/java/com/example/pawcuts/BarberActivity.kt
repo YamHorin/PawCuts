@@ -1,5 +1,6 @@
 package com.example.pawcuts
 
+import MenuBarBarberFragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +10,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pawcuts.fragments.barberFragments.CalendarAppointmentsPetBarberFragment
 import com.example.pawcuts.fragments.barberFragments.MakeEventBarberFragment
-import com.example.pawcuts.fragments.barberFragments.MenuBarBarberFragment
 import com.example.pawcuts.fragments.barberFragments.ProfileBarberFragment
 import com.example.pawcuts.fragments.barberFragments.ReviewsBarberScreenFragment
 import com.example.pawcuts.fragments.barberFragments.ShowPetInfoFragment

@@ -17,12 +17,12 @@ import com.google.firebase.database.ValueEventListener
 
 
 class ReviewsBarberScreenFragment : Fragment() {
-    private lateinit var binding:FragmentReviewsBarberScreenBinding
-    private var adapter: ReviewAdapter =ReviewAdapter()
-    private var uidFireBase =""
+    private lateinit var binding: FragmentReviewsBarberScreenBinding
+    private var adapter: ReviewAdapter = ReviewAdapter()
+    private var uidFireBase = ""
 
     companion object {
-        fun init(uidFireBase:String): ReviewsBarberScreenFragment {
+        fun init(uidFireBase: String): ReviewsBarberScreenFragment {
             val fragment = ReviewsBarberScreenFragment()
             val args = Bundle()
             args.putString("uid", uidFireBase)
@@ -31,17 +31,18 @@ class ReviewsBarberScreenFragment : Fragment() {
 
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        uidFireBase  = arguments?.getString("uid").toString()
+        uidFireBase = arguments?.getString("uid").toString()
         binding = FragmentReviewsBarberScreenBinding.inflate(inflater, container, false)
         binding.reviewsBarberScreenFragmentRV.adapter = adapter
         binding.reviewsBarberScreenFragmentRV.layoutManager = LinearLayoutManager(requireContext())
 
         //get reviews
-        val data:DataUsersManager = DataUsersManager.getInstance()
+        val data: DataUsersManager = DataUsersManager.getInstance()
         val reviewsRef = data.getRefrenceForReviewsOfBarber(uidFireBase)
         reviewsRef.addValueEventListener(object :
             ValueEventListener { // For realtime data fetching from DB
@@ -54,10 +55,9 @@ class ReviewsBarberScreenFragment : Fragment() {
                         childSnapshot.getValue(Review::class.java)?.let { list.add(it) }
                     }
                     adapter.reviews = list
-                    data.updateRatingScoreBarber(uidFireBase , list)
+                    data.updateRatingScoreBarber(uidFireBase, list)
                     adapter.notifyDataSetChanged()
-                }
-                else
+                } else
                     adapter = ReviewAdapter(emptyList())
             }
 
@@ -69,5 +69,6 @@ class ReviewsBarberScreenFragment : Fragment() {
 
         return binding.root
     }
+}
 
 
