@@ -64,8 +64,17 @@ class ImageProfileManager private constructor(context: Context){
 
     }
 
-    fun getImageURL(ref: StorageReference): Uri? {
-        return ref.downloadUrl.result
+    fun getImageURL(uid: String) {
+        val ref = createReference(uid)
+        ref.downloadUrl.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Log.d("uploadImageFUNCTION", "task downloadUrl : ${task.result}")
+                callBackUploadImage?.onSuccess(task.result.toString())
+            } else {
+                Log.d("uploadImageFUNCTION", "task downloadUrl .exception: $task.exception")
+                task.exception?.let { callBackUploadImage?.onFailure(it) }
+            }
+        }
     }
 
     private fun createReference(userName:String): StorageReference {

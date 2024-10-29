@@ -4,7 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.petOwnerFragments.appointmentFragments.BarberCardFragment">
+    tools:context=".fragments.appointmentFragments.BarberCardFragment">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BarberCardFragment_FAB_goBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/SmallSpace"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:clickable="true"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/click_here_to_go_back_to_the_start_screen"
+        android:src="@drawable/baseline_chevron_left_24" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/barberItemFragment_CV_data"
         android:layout_width="match_parent"
@@ -12,6 +24,7 @@
         android:layout_marginVertical="@dimen/reviewItem_Vertical"
         android:layout_marginHorizontal="@dimen/SmallSpace"
         android:elevation="8dp"
+        android:layout_below="@id/BarberCardFragment_FAB_goBack"
         app:cardCornerRadius="36dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,12 +37,18 @@
             android:layout_margin="@dimen/space_RL">
 
             <com.google.android.material.textview.MaterialTextView
-                android:layout_width="253dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/barberItemFragment_MTV_info"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="@dimen/SmallSpace"
-                android:layout_marginBottom="41dp"
+                android:layout_marginBottom="6dp"
+                android:layout_below="@id/barberItemFragment_MTV_availability"
+                android:layout_marginTop="@dimen/space_RL"
                 android:fontFamily="@font/inter_medium"
+                android:minLines="1"
+                android:maxLines="4"
+                android:textSize="@dimen/stringSize"
                 android:text="@string/a_place_with_20_years_of_experience_in_the_field_of_dog_cat_grooming_guarantees_you_the_best_service">
 
             </com.google.android.material.textview.MaterialTextView>
@@ -38,9 +57,8 @@
                 android:id="@+id/barberItemFragment_MTV_availability"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="@dimen/space_RL"
-                android:layout_marginBottom="122dp"
+                android:layout_below="@id/barberItemFragment_MTV_PhoneNumber"
+                android:layout_marginTop="@dimen/SmallSpace"
                 android:layout_toEndOf="@id/barberItem_cv_calender"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/_06_06_2025_12_00_13_00"
@@ -56,7 +74,8 @@
                 app:cardElevation="10dp"
                 android:layout_marginStart="15dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="140dp"
+                android:layout_below="@id/barberItemFragment_MTV_PhoneNumber"
+                android:layout_marginTop="@dimen/SmallSpace"
                 >
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
@@ -67,13 +86,14 @@
 
                 </androidx.appcompat.widget.AppCompatImageView>
             </androidx.cardview.widget.CardView>
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/barberItemFragment_IMG_favorite"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="150dp"
-                android:layout_marginEnd="@dimen/SmallSpace"
+                android:layout_marginEnd="22dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/heart_item_empty" />
 
@@ -82,7 +102,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="@dimen/SmallSpace"
+                android:layout_below="@id/barberItemFragment_RTNG_rating"
                 android:layout_toEndOf="@id/barberItem_cv_price"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/_130"
@@ -97,8 +118,9 @@
                 android:elevation="10dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="150dp"
+                android:layout_below="@id/barberItemFragment_RTNG_rating"
+                android:layout_marginTop="@dimen/SmallSpace"
                 >
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
@@ -111,14 +133,15 @@
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/barberItemFragment_MTV_distance"
+                android:id="@+id/barberItemFragment_MTV_PhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="100dp"
+                android:layout_below="@id/barberItemFragment_RTNG_rating"
+                android:layout_marginTop="@dimen/SmallSpace"
                 android:layout_toEndOf="@id/barberItem_cv_location"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/_2_5km"
+                android:text="@string/_0526237177"
                 android:textSize="12sp">
 
             </com.google.android.material.textview.MaterialTextView>
@@ -131,13 +154,14 @@
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="100dp"
+                android:layout_below="@id/barberItemFragment_RTNG_rating"
+                android:layout_marginTop="@dimen/SmallSpace"
                 >
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/location"
+                    android:src="@drawable/phone"
                     >
 
                 </androidx.appcompat.widget.AppCompatImageView>
@@ -160,8 +184,8 @@
                 style="@style/Widget.AppCompat.RatingBar.Indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="39dp"
+                android:layout_marginTop="@dimen/space_RL"
+                android:layout_below="@id/barberItemFragment_MTV_name"
                 android:isIndicator="true"
                 android:progressTint="@color/rating_first"
                 android:scaleX="0.7"
@@ -171,8 +195,8 @@
                 tools:rating="4" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_marginVertical="10dp"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="@dimen/SmallSpace"

@@ -37,20 +37,19 @@
         android:backgroundTint="@color/white"
         android:textColor="@color/purple400"
         android:layout_below="@id/LoginActivity_BUTTON_SingIn"
-        android:layout_marginTop="@dimen/SmallSpace"
+        android:layout_marginTop="30dp"
 
         />
 
 
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/LoginActivity_ACIV_imageDoggy"
-        android:layout_width="250dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginBottom="35dp"
-        android:layout_height="250dp"
+        android:layout_width="299dp"
+        android:layout_height="315dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="35dp"
         android:scaleType="centerCrop" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -61,9 +60,9 @@
         android:layout_centerInParent="true"
         android:gravity="top"
         android:text="@string/welcome_to_pawcuts"
-        android:textSize="@dimen/title_size"
-        android:textStyle="bold"
-        app:fontFamily="@font/inter_medium" />
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            app:fontFamily="@font/inter_medium" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/LoginActivity_MTV_INFO"

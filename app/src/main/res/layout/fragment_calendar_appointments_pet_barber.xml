@@ -3,13 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.calendarAppointmentsFragment"
+    tools:context=".fragments.barberFragments.CalendarAppointmentsPetBarberFragment"
     android:background="@color/white"
     >
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/CalendarAppointmentsPetBarberFragment_FAB_addEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/SmallSpace"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:clickable="true"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/click_here_to_go_back_to_the_start_screen"
+        android:src="@drawable/plus" />
+
     <CalendarView
         android:id="@+id/appointmentsFragment_calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/CalendarAppointmentsPetBarberFragment_FAB_addEvent"
         android:layout_margin="@dimen/SmallSpace"
         style="@style/ThemeOverlay.MaterialComponents.MaterialCalendar"/>
 

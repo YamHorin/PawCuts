@@ -75,8 +75,6 @@ class SignUpPetOwnerFragment : Fragment() , InterfaceFragments {
     fun getUserInfoPetOwner(emailUser:String , uidUser:String): PetOwner {
         //profile pic- later fireBase will give an url to put
         val profilePic = ""
-        //get Location
-        val location: LatLng = LatLng(0.0,0.0)
         //get name
         val name  = binding.SingUpPetOwnerFragmentTIETName.text.toString()
         //get price
@@ -100,7 +98,7 @@ class SignUpPetOwnerFragment : Fragment() , InterfaceFragments {
             .animalType(type)
             .uidFireBase(uidUser)
             .moreDetails("")
-            .location(location)
+            .location("LatLng(0.0,0.0)")
             .builder()
     }
 

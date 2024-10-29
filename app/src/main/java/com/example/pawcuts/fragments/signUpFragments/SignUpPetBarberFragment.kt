@@ -87,7 +87,7 @@ class SignUpPetBarberFragment: Fragment(),InterfaceFragments {
             .phoneNumber(phone)
             .price(price)
             .profilePhoto(profilePic)
-            .location(LatLng(0.0,0.0))
+            .location("LatLng(0.0,0.0)")
             .uidFireBase(uidUser)
             .moreDetails("")
             .builder()

@@ -3,18 +3,21 @@ package com.example.pawcuts.utilities
 import android.app.Activity
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
+import com.example.pawcuts.interfaces.CallBackSignIn
 import com.example.pawcuts.interfaces.CallBackSignUpGoogle
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
 import java.lang.ref.WeakReference
 
+
 class AccountManager private constructor(context: Context) {
     private val auth: FirebaseAuth = Firebase.auth
     private val contextRef = WeakReference(context)
+    var callBackSignIn: CallBackSignIn? = null
     var google:CallBackSignUpGoogle? = null
     companion object {
         @Volatile
@@ -67,18 +70,22 @@ class AccountManager private constructor(context: Context) {
             }
     }
 
-    fun signInUserEmailPassword(emailUser:String , passwordUser:String , activity: Activity): FirebaseUser? {
+    fun signInUserEmailPassword(emailUser:String , passwordUser:String , activity: Activity) {
         auth.signInWithEmailAndPassword(emailUser, passwordUser).addOnCompleteListener(activity){ task ->
             if (task.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
                 Log.d("sign In User Email Password", "signInWithEmail:success")
+                callBackSignIn?.success()
             } else {
                 // If sign in fails, display a message to the user.
                 Log.w("sign In User Email Password", "signInWithEmail:failure", task.exception)
+                if (task.exception is FirebaseAuthException)
+                {
+                    val errorCode = (task.exception as FirebaseAuthException).errorCode
+                    callBackSignIn?.failure(errorCode)
+                }
 
             }
         }
-        return auth.currentUser
     }
 
     fun currentUser(): FirebaseUser? {
@@ -89,6 +96,8 @@ class AccountManager private constructor(context: Context) {
         val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(firebaseCredential)
             .addOnCompleteListener(activity) { task ->
+                //check if the exception is a firebase one
+
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("signUpUserWithCredential", "signInWithCredential:success")
@@ -96,7 +105,14 @@ class AccountManager private constructor(context: Context) {
                     } else {
                     // If sign in fails, display a message to the user.
                     Log.w("signUpUserWithCredential", "signInWithCredential:failure", task.exception)
-                }
+                    //check if the exception is a firebase one
+
+                    if (task.exception is FirebaseAuthException)
+                        {
+                            val errorCode = (task.exception as FirebaseAuthException).errorCode
+                            callBackSignIn?.failure(errorCode)
+                        }
+                    }
             }
 
     }
@@ -109,24 +125,31 @@ class AccountManager private constructor(context: Context) {
             .addOnCompleteListener(activity) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("signUpUserEmailPassword", "createUserWithEmail:success")
+                    Log.d("signUpAllUsersFragment", "createUserWithEmail:success")
                     val user = auth.currentUser
+                    callBackSignIn?.success()
                 } else {
-                    // TODO:If sign in fails, display a message to the user.
-                    Log.w("signUpUserEmailPassword", "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        activity,
-                        "Authentication failed: ${task.exception?.cause} ",
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    Log.w("signUpAllUsersFragment", "createUserWithEmail:failure", task.exception?.cause)
+                    //check if the exception is a firebase one
+                    if (task.exception is FirebaseAuthException)
+                    {
+                        val errorCode = (task.exception as FirebaseAuthException).errorCode
+                        callBackSignIn?.failure(errorCode)
+                    }
                 }
             }
 
     }
 
-    fun getUidCurrentUser(): String {
-        Log.d("getUidCurrentUser","${auth.currentUser?.uid}")
-        return auth.currentUser?.uid.toString()
+    fun getUidCurrentUser() :String {
+        var email = currentUser()?.email.toString()
+        email = email.replace("@"," ")
+        email = email.replace("."," ")
+        return email
+    }
+
+    fun signOut() {
+        auth.signOut()
     }
 
 

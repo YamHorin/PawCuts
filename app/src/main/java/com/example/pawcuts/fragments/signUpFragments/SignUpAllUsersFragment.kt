@@ -31,8 +31,8 @@ class SignUpAllUsersFragment : Fragment() ,InterfaceFragments {
     }
 
     fun getInfoUser(): Array<String> {
-        val userEmail  = binding.SingUpAllUsersFragmentTIETEmail.text.toString()
-        val userPassword =binding.SingUpAllUsersFragmentTIELPassword.text.toString()
+        val userEmail  = binding.SingUpAllUsersFragmentTILEmail.getEditText()?.getText().toString().trim();
+        val userPassword = binding.SingUpAllUsersFragmentTILPassword.getEditText()?.getText().toString().trim();
         var userType:String =""
         if(binding.SingUpAllUsersFragmentRBPetBarber.isChecked)
             userType = "barber"

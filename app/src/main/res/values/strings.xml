@@ -62,4 +62,17 @@
     <string name="book_an_appointment">book an appointment</string>
     <string name="_06_06_2025_12_00_13_00">06.06.2025 12:00-13:00</string>
     <string name="_130">130₪</string>
+    <string name="a_cute_cat_who_is_afraid_of_a_shower_and_is_looking_for_a_good_professional_to_help_him">A cute cat who is afraid of a shower and is looking for a good professional to help him</string>
+    <string name="comb_and_collar">Comb and Collar</string>
+    <string name="email">Email</string>
+    <string name="owner_john_smith">Owner: john smith</string>
+    <string name="sam_a_very_cute_cat_is_looking_for_a_good_bath_so_he_can_feel_at_home_and_also_be_the_cleanest">Sam a very cute cat is looking for a good bath so he can feel at home and also be the cleanest</string>
+    <string name="click_here_to_find_barbers">click here to find barbers</string>
+    <string name="ShakelPrice">130₪</string>
+    <string name="_0526237177">0526237177</string>
+    <string name="animation_text">animation text</string>
+    <string name="date">date</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="please_note_if_there_are_events_that_overlap_with_your_event_these_events_will_be_canceled_it_is_your_responsibility_to_moving_these_events_in_coordination_with_the_pet_owners">Please note: if there are events that overlap with your event, these events will be canceled. It is your responsibility to moving these events in coordination with the pet owners</string>
 </resources>

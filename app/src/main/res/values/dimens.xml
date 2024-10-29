@@ -19,4 +19,6 @@
     <dimen name="reviewItem_Vertical">5dp</dimen>
     <dimen name="space_from_right_review_Item">20dp</dimen>
     <dimen name="space_from_left_review_Item">5dp</dimen>
+    <dimen name="smallStringSize">10sp</dimen>
+    <dimen name="animationTextSize">35sp</dimen>
 </resources>

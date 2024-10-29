@@ -16,7 +16,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var LoginActivity_ACIV_imageDoggy: AppCompatImageView
     private lateinit var LoginActivity_MTV_Welcome: MaterialTextView
     private lateinit var LoginActivity_MTV_INFO:MaterialTextView
-    val linkImageDoggy: String = "https://i.imgur.com/esxP1j4.png"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
     private fun initViews() {
         Glide
             .with(this)
-            .load(linkImageDoggy)
+            .load(R.drawable.logo)
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_background)
             .into(LoginActivity_ACIV_imageDoggy)
@@ -48,13 +47,11 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    //TODO: finish the activity
     private fun moveToSignUpScreen() {
         val intent = Intent(this, SignUpAllUsersActivity::class.java);
         startActivity(intent)
         finish()
     }
-    //TODO: finish the activity
     private fun moveToSignINScreen() {
         val intent = Intent(this, SignInActivity::class.java);
         startActivity(intent)

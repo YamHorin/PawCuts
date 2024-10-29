@@ -23,3 +23,5 @@
 -keep class androidx.credentials.playservices.** {
   *;
 }
+
+

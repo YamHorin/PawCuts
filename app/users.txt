@@ -1,0 +1,17 @@
+barber User
+--------------
+email
+horinybaam@mail.co.il
+passWord
+Barber123
+
+
+PetOwner User
+--------------
+email
+yamDoggy@gmail.com
+passWord
+Doggy123
+
+
+

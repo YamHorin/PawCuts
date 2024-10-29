@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.barberFragments.profileBarberFragment">
+    tools:context=".fragments.barberFragments.ProfileBarberFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/profileBarberFragment_MTV_title"
@@ -12,7 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/user_profile"
-        android:layout_marginVertical="@dimen/SmallSpace"
         android:textSize="@dimen/title_size"
         android:textStyle="bold"
         app:fontFamily="@font/inter_medium">
@@ -35,7 +41,7 @@
     <LinearLayout
         android:id="@+id/profileBarberFragment_LL"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="670dp"
         android:layout_marginTop="@dimen/SmallSpace"
         android:layout_margin="@dimen/SmallSpace"
         android:layout_below="@id/profileBarberFragment_ACIV_profile"
@@ -58,12 +64,46 @@
                 android:layout_height="wrap_content"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/profileBarberFragment_TIL_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/email"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/profileBarberFragment_TIET_email"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/profileBarberFragment_TIL_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/prompt_password"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/profileBarberFragment_TIET_password"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/profileBarberFragment_TIL_Phone"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:endIconMode="clear_text"
-            app:prefixText="+972"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -100,7 +140,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:hint="@string/price_per_meeting"
-            app:suffixText="$"
             android:layout_weight="1"
             >
 
@@ -111,6 +150,25 @@
                 android:layout_height="wrap_content"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/profileBarberFragment_TIL_info"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/more_details_optional"
+            android:layout_weight="2"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/profileBarberFragment_TIET_info"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </LinearLayout>
     <RadioGroup
@@ -147,7 +205,7 @@
     </RadioGroup>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/LoginActivity_BUTTON_SingIn"
+        android:id="@+id/LoginActivity_FAB_save"
         android:layout_width="@dimen/Button_Login_width"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -163,3 +221,5 @@
 
 
 </RelativeLayout>
+
+</ScrollView>

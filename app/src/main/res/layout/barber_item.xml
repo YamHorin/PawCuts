@@ -50,7 +50,9 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
                     android:src="@drawable/schedule"
-                    ></androidx.appcompat.widget.AppCompatImageView>
+                    >
+
+                </androidx.appcompat.widget.AppCompatImageView>
             </androidx.cardview.widget.CardView>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/barberItemFragment_IMG_favorite"
@@ -66,12 +68,14 @@
                 android:id="@+id/barberItemFragment_MTV_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="77dp"
-                android:layout_toRightOf="@id/barberItem_cv_price"
+                android:layout_toEndOf="@id/barberItem_cv_price"
                 android:fontFamily="@font/inter_medium"
-                android:text="130₪"
-                android:textSize="12sp"></com.google.android.material.textview.MaterialTextView>
+                android:text="@string/ShakelPrice"
+                android:textSize="12sp">
+
+            </com.google.android.material.textview.MaterialTextView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/barberItem_cv_price"
@@ -88,7 +92,9 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
                     android:src="@drawable/dollar"
-                    ></androidx.appcompat.widget.AppCompatImageView>
+                    >
+
+                </androidx.appcompat.widget.AppCompatImageView>
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textview.MaterialTextView
@@ -100,7 +106,9 @@
                 android:layout_toRightOf="@id/barberItem_cv_location"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/_2_5km"
-                android:textSize="12sp"></com.google.android.material.textview.MaterialTextView>
+                android:textSize="12sp">
+
+            </com.google.android.material.textview.MaterialTextView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/barberItem_cv_location"
@@ -138,8 +146,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="41dp"
-                android:layout_marginEnd="144dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="108dp"
                 android:isIndicator="true"
                 android:progressTint="@color/rating_first"
                 android:scaleX="0.4"

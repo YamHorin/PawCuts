@@ -26,6 +26,7 @@ import com.example.pawcuts.fragments.signUpFragments.SignUpMoreDetailsFragment
 import com.example.pawcuts.fragments.signUpFragments.SignUpPetBarberFragment
 import com.example.pawcuts.fragments.signUpFragments.SignUpPetOwnerFragment
 import com.example.pawcuts.interfaces.CallBackGeocodeListener
+import com.example.pawcuts.interfaces.CallBackSignIn
 import com.example.pawcuts.interfaces.CallBackSignUpGoogle
 import com.example.pawcuts.interfaces.CallBackUploadImage
 import com.example.pawcuts.models.Barber
@@ -33,6 +34,8 @@ import com.example.pawcuts.models.PetOwner
 import com.example.pawcuts.models.SignUpPhases
 import com.example.pawcuts.models.UserType
 import com.example.pawcuts.utilities.AccountManager
+import com.example.pawcuts.utilities.CalendarManager
+import com.example.pawcuts.utilities.Constants
 import com.example.pawcuts.utilities.DataUsersManager
 import com.example.pawcuts.utilities.ImageProfileManager
 import com.google.android.gms.location.CurrentLocationRequest
@@ -41,6 +44,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
+import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import java.util.UUID
 
@@ -66,20 +70,21 @@ class SignUpAllUsersActivity : AppCompatActivity() {
     private var userType:UserType = UserType.none
     private var emailUser:String = ""
     private var uidUser:String =""
-
+    private var gson: Gson =Gson()
     private lateinit var accountManager: AccountManager
     private lateinit var dataUsersManager: DataUsersManager
+    private lateinit var calendarManager: CalendarManager
     private lateinit var imageProfileManager: ImageProfileManager
     private lateinit var locationPermissionRequest: ActivityResultLauncher<Array<String>>
-    var SingUPLevel = 1
-    private lateinit var callBackSingUpScreenButtonsPress:CallBackSingUpScreenButtonsPress
     private lateinit var locationCurrent :LatLng
+    private lateinit var callBackSingUpScreenButtonsPress:CallBackSingUpScreenButtonsPress
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_sing_up_all_users)
         findViews()
+        calendarManager = CalendarManager.getInstance()
         dataUsersManager = DataUsersManager.getInstance()
         accountManager = AccountManager.getInstance()
         imageProfileManager = ImageProfileManager.getInstance()
@@ -94,6 +99,31 @@ class SignUpAllUsersActivity : AppCompatActivity() {
         signUpMoreDetailsFragment = SignUpMoreDetailsFragment()
         progressBarSingUpScreenFragment = ProgressBarSingUpScreenFragment()
         signUpPetOwnerFragment = SignUpPetOwnerFragment()
+        accountManager.callBackSignIn = object :CallBackSignIn {
+
+            override fun success() {
+                Log.d("callBackSignIn ", "sign in: success")
+            }
+
+            override fun failure(errorCode: String) {
+                if (errorCode=="ERROR_INVALID_CREDENTIAL")
+                    Toast.makeText(
+                        this@SignUpAllUsersActivity,
+                        "ERROR: wrong email/password",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                else
+                    Toast.makeText(
+                        this@SignUpAllUsersActivity,
+                        errorCode,
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                throw IllegalArgumentException()
+
+            }
+        }
+
         callBackSingUpScreenButtonsPress = object : CallBackSingUpScreenButtonsPress {
             override fun nextScreen() {
                 try {
@@ -140,6 +170,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
                                 googleIdTokenCredential.idToken,
                                 this@SignUpAllUsersActivity
                             )
+                            uidUser = accountManager.getUidCurrentUser()
                         } else {
                             Log.e("sing in User Google ERROR", "UNEXPECTED_CREDENTIAL")
                         }
@@ -161,7 +192,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
 
         imageProfileManager.callBackUploadImage = object : CallBackUploadImage {
             override fun onSuccess(downloadUrl: String) {
-                dataUsersManager.updateProfilePhotoUser(uidUser, downloadUrl)
+                dataUsersManager.updateProfilePhotoUser(uidUser,userType ,downloadUrl )
             }
 
             override fun onFailure(exception: Exception) {
@@ -178,7 +209,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
             override fun done() {
                 //get email
                 emailUser = accountManager.getEmailCurrentUser()
-                uidUser = accountManager.getUidCurrentUser()
+                accountManager.getUidCurrentUser()
                 //change fragment
                 supportFragmentManager.beginTransaction().replace(R.id.SingUPActivity_FRAME_top,signUpGoogleFragment).commit()
                 //change current screen
@@ -188,7 +219,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
         }
         signUpPetBarberFragment.callBackGeocodeListener = object:CallBackGeocodeListener{
             override fun onGeocodeSuccess(location: LatLng) {
-                dataUsersManager.updateLocationUser(uidUser , location)
+                dataUsersManager.updateLocationUser(uidUser ,userType, gson.toJson(location))
             }
 
             override fun onGeocodeFailure(exception: java.lang.Exception) {
@@ -294,45 +325,67 @@ class SignUpAllUsersActivity : AppCompatActivity() {
         signUPActivity_FRAME_down = findViewById(R.id.SingUPActivity_FRAME_down)
 
     }
+
+    private fun makeRefConnectionIntoDataBaseAndCalendar(type:UserType)
+    {
+        when(type)
+        {
+            UserType.petOwner ->
+            {
+            dataUsersManager.makeRefConnectionPetOwner(uidUser)
+            }
+            UserType.petBarber -> dataUsersManager.makeRefConnectionBarber(uidUser)
+            UserType.none -> return
+        }
+        calendarManager.createNewCalendarForNewUser(uidUser , type)
+
+    }
     private fun processTheCurrentScreen(screen:SignUpPhases)
     {
         when(screen)
         {
             SignUpPhases.EmailAndPassword -> {
-                signUpAllUsersFragment.checkUserInput()
-                val arr: Array<String> =signUpAllUsersFragment.getInfoUser()
-                val email = arr[0]
-                val password =arr[1]
-                emailUser = email
-                accountManager.signUpUserEmailPassword(email, password , this)
-                if (accountManager.currentUser()!=null)
-                {
-                    uidUser = accountManager.getUidCurrentUser()
-                    when(arr[2])
+                try {
+                    signUpAllUsersFragment.checkUserInput()
+                    val arr: Array<String> =signUpAllUsersFragment.getInfoUser()
+                    val email = arr[0]
+                    val password =arr[1]
+                    when( arr[2])
                     {
-                        "barber"->{
-                            userType = UserType.petBarber
-                            //make a new list
-                            //TODO(delete this line )
-                            dataUsersManager.createNewListBarbersValue()
-                        }
-                        "owner"->{
-                            userType = UserType.petOwner
-                        }
+                        "barber"-> userType = UserType.petBarber
+                        "owner"-> userType = UserType.petOwner
                     }
-                }
-                else
+                    //dataUsersManager.makeListBarbers()
+                    emailUser = email
+                    accountManager.signUpUserEmailPassword(email, password , this)
+                    uidUser = accountManager.getUidCurrentUser()
+                    makeRefConnectionIntoDataBaseAndCalendar(userType)
+
+                }catch (e:Exception)
                 {
-                    Log.d("processTheCurrentScreen :EmailAndPassword" , "error")
+                    Log.e("signUpAllUsersFragment" , e.message.toString())
+                    Toast.makeText(
+                        this,
+                        "Authentication failed ",
+                        Toast.LENGTH_SHORT,
+                    ).show()
                 }
 
             }
             SignUpPhases.GoogleAccount -> {
                 signUpGoogleFragment.checkUserInput()
                 userType = signUpGoogleFragment.getUserType()
+                when(userType)
+                {
+                    UserType.petBarber ->  dataUsersManager.makeRefConnectionBarber(uidUser)
+                    UserType.petOwner ->  dataUsersManager.makeRefConnectionPetOwner(uidUser)
+                    UserType.none -> return
+
+                }
+                makeRefConnectionIntoDataBaseAndCalendar(userType)
+
             }
             SignUpPhases.petBarber -> {
-                dataUsersManager.createNewListBarbersValue()
                 signUpPetBarberFragment.checkUserInput()
                 val user:Barber = signUpPetBarberFragment.getUserInfoPetBarber(emailUser , uidUser)
                 imageProfileManager.uploadImage(uidUser, signUpPetBarberFragment.getUserProfile())
@@ -346,11 +399,11 @@ class SignUpAllUsersActivity : AppCompatActivity() {
                 //profile pic
                 imageProfileManager.uploadImage(user.uidFireBase , signUpPetOwnerFragment.getUserProfile())
                 //location
-                user.location = locationCurrent
+                user.location = gson.toJson(locationCurrent)
                 dataUsersManager.writeNewUserPetOwnerDataBase(user)
             }
             SignUpPhases.moreDetails -> {
-            dataUsersManager.updateMoreDetailsUser(uidUser ,signUpMoreDetailsFragment.getMoreDetails())
+            dataUsersManager.updateMoreDetailsUser(uidUser ,userType,signUpMoreDetailsFragment.getMoreDetails())
             }
 
         }
@@ -382,8 +435,6 @@ class SignUpAllUsersActivity : AppCompatActivity() {
             SignUpPhases.GoogleAccount -> {
                 //update ui down
                 progressBarSingUpScreenFragment.progressBarChange(2)
-                //get email of user
-                val email = accountManager.getEmailCurrentUser()
                 //replace screen top
                 when(userType)
                 {
@@ -421,10 +472,30 @@ class SignUpAllUsersActivity : AppCompatActivity() {
     }
 
     private fun moveToMainScreen() {
-        TODO("return user info + type ")
-        val intent = Intent(this, MainActivity::class.java);
-        startActivity(intent)
-        finish()
+        if (userType == UserType.petOwner)
+        {
+            //put user in FireStore dataBase
+            calendarManager.createNewCalendarForNewUser(uidUser , userType)
+            val intent = Intent(this, PetOwnerActivity::class.java);
+            val bundle = Bundle()
+            bundle.putString(Constants.KEYS.UID_KEY, uidUser)
+             intent.putExtras(bundle)
+            startActivity(intent)
+            finish()
+
+        }
+        else
+        {
+
+            //put user in FireStore dataBase
+            calendarManager.createNewCalendarForNewUser(uidUser , userType)
+            val intent = Intent(this, BarberActivity::class.java);
+            val bundle = Bundle()
+            bundle.putString(Constants.KEYS.UID_KEY, uidUser)
+             intent.putExtras(bundle)
+            startActivity(intent)
+            finish()
+        }
     }
 
 

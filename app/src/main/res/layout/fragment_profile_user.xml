@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.petOwnerFragments.ProfileUserFragment">
 
@@ -12,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/user_profile"
-        android:layout_marginVertical="@dimen/SmallSpace"
+        android:layout_margin="@dimen/SmallSpace"
         android:textSize="@dimen/title_size"
         android:textStyle="bold"
         app:fontFamily="@font/inter_medium">
@@ -35,7 +40,7 @@
     <LinearLayout
         android:id="@+id/ProfileUserFragment_LL"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="650dp"
         android:layout_marginTop="@dimen/SmallSpace"
         android:layout_margin="@dimen/SmallSpace"
         android:layout_below="@id/ProfileUserFragment_ACIV_profile"
@@ -58,6 +63,22 @@
                 android:layout_height="wrap_content"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_PetName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/pet_name"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIEL_PetName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ProfileUserFragment_TIL_Phone"
@@ -77,40 +98,63 @@
                 android:inputType="phone"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ProfileUserFragment_TIL_Address"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:hint="@string/address"
-            >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ProfileUserFragment_TIEL_Address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ProfileUserFragment_TIL_price"
+            android:id="@+id/ProfileUserFragment_TIL_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:endIconMode="clear_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:hint="@string/price_per_meeting"
+            android:hint="@string/email"
             app:suffixText="$"
             android:layout_weight="1"
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ProfileUserFragment_TIET_price"
-                android:inputType="number"
+                android:id="@+id/ProfileUserFragment_TIET_email"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_PassWord"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/prompt_password"
+            app:suffixText="$"
+            android:layout_weight="1"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIET_PassWord"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ProfileUserFragment_TIL_info"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/more_details_optional"
+            android:layout_weight="2"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ProfileUserFragment_TIET_info"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
     </LinearLayout>
     <RadioGroup
@@ -125,7 +169,7 @@
             android:id="@+id/ProfileUserFragment_RB_DogBarber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/i_am_a_dog_barber_only"
+            android:text="@string/i_am_a_dog_owner"
             android:textStyle="bold"
             />
 
@@ -134,7 +178,7 @@
             android:id="@+id/ProfileUserFragment_RB_CatBarber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/i_am_a_cat_barber_only"
+            android:text="@string/i_am_a_cat_owner"
             android:textStyle="bold"
             />
         <RadioButton
@@ -147,7 +191,7 @@
     </RadioGroup>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/LoginActivity_BUTTON_SingIn"
+        android:id="@+id/LoginActivity_BUTTON_Save"
         android:layout_width="@dimen/Button_Login_width"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -162,3 +206,4 @@
         />
 
 </RelativeLayout>
+</ScrollView>

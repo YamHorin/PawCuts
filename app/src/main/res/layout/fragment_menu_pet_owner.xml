@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.petOwnerFragments.menuPetOwnerFragment">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/navigation_FAB_doggy"
+        android:id="@+id/navigation_FAB_findBarbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:layout_marginStart="170dp"
+        android:contentDescription="@string/click_here_to_find_barbers"
         android:src="@drawable/barber"
         app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator"
         android:backgroundTint="@color/white"/>
@@ -24,7 +25,7 @@
         android:background="@color/Green">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/navigation_home"
+            android:id="@+id/navigation_events"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -64,7 +65,7 @@
             app:rippleColor="@color/colorAccent"
             android:backgroundTint="@android:color/transparent" />
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/navigation_clubs"
+            android:id="@+id/navigation_logOut"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -77,7 +78,15 @@
             android:backgroundTint="@android:color/transparent" />
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/navigation_LL"
+        android:background="@color/Green"
+        >
+
+    </View>
 
 
 
-</FrameLayout>
+</RelativeLayout>

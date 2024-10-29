@@ -3,15 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.calendarAppointmentsFragment"
+    tools:context=".fragments.appointmentFragments.FragmentCalendarAppointmentsPetOwner"
     android:background="@color/white"
     >
-    <CalendarView
-        android:id="@+id/appointmentsFragment_calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/SmallSpace"
-        style="@style/ThemeOverlay.MaterialComponents.MaterialCalendar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/appointmentsFragmentBarber_RV"
@@ -19,6 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         tools:listitem="@layout/calendar_item_pet_owner_screen"
-        android:layout_below="@id/appointmentsFragment_calendarView"/>
+        />
 
 </RelativeLayout>

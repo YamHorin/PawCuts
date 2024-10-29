@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.googleid)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,6 +65,7 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)
 
 
     //Google Account
@@ -86,6 +88,10 @@ dependencies {
     implementation(libs.play.services.location.v2101)
     implementation(libs.play.services.location)
     implementation(libs.google.maps)
+
+    //lotti
+    implementation (libs.lottie)
+
 
 
 }

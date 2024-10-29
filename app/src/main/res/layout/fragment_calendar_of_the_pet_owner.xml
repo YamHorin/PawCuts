@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.petOwnerFragments.CalenderOfThePetOwnerFragment">
+
+    <CalendarView
+        android:id="@+id/appointmentsFragment_calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/SmallSpace"
+        style="@style/ThemeOverlay.MaterialComponents.MaterialCalendar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appointmentsFragmentBarber_RV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        tools:listitem="@layout/appointment_of_pet_owner_item"
+        android:layout_below="@id/appointmentsFragment_calendarView"/>
+
+</RelativeLayout>

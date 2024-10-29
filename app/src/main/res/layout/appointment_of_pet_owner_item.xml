@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/review_CV_data"
+        android:layout_width="395dp"
+        android:layout_height="90dp"
+        android:layout_marginVertical="@dimen/reviewItem_Vertical"
+        android:layout_marginEnd="@dimen/space_from_left_review_Item"
+        android:elevation="10dp"
+        app:cardCornerRadius="36dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/space_RL">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/appointmentItemBarber_MTV_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/_10_00_11_00"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/appointmentPetOwner_MTV_nameBarber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@id/appointmentItemBarber_MTV_time"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/comb_and_collar"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/appointmentItemBarber_FAB_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:contentDescription="@string/get_a_map_of_all_the_pet_barber"
+                android:src="@drawable/cancel"
+                app:fabCustomSize="40dp"
+                app:shapeAppearance="@style/Widget.Material3.CircularProgressIndicator"
+                app:tint="@color/heart_color" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

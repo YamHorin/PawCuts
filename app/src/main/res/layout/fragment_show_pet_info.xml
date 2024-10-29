@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.barberFragments.ShowPetInfoFragment">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ShowPetInfoFragment_FAB_GoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/SmallSpace"
+        android:layout_marginTop="@dimen/SmallSpace"
+        android:clickable="true"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/click_here_to_go_back_to_the_start_screen"
+        android:src="@drawable/baseline_chevron_left_24"
+        >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ShowPetInfoFragment_CV_poster"
+        android:layout_width="180dp"
+        android:layout_height="240dp"
+        android:layout_marginVertical="@dimen/space_RL"
+        android:layout_marginStart="@dimen/space_RL"
+        android:elevation="@dimen/space_RL"
+        app:cardCornerRadius="@dimen/SmallSpace"
+        app:cardElevation="@dimen/space_RL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ShowPetInfoFragment_FAB_GoBack">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ShowPetInfoFragment_IMG_poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        tools:src="@drawable/add_a_photo" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/movie_CV_data"
+        android:layout_width="202dp"
+        android:layout_height="240dp"
+        android:layout_marginVertical="@dimen/space_RL"
+        android:layout_marginStart="12dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="@dimen/SmallSpace"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ShowPetInfoFragment_CV_poster"
+        app:layout_constraintTop_toBottomOf="@id/ShowPetInfoFragment_FAB_GoBack">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_marginStart="@dimen/SmallSpace">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ShowPetInfoFragment_MTV_namePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/sam_cat"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold"
+                app:fontFamily="@font/inter_medium">
+
+            </com.google.android.material.textview.MaterialTextView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ShowPetInfoFragment_MTV_nameOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_RL"
+                android:layout_below="@id/ShowPetInfoFragment_MTV_namePet"
+                android:text="@string/owner_john_smith"
+                android:textSize="@dimen/stringSize"
+                android:textStyle="bold"
+                app:fontFamily="@font/inter_medium">
+            </com.google.android.material.textview.MaterialTextView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ShowPetInfoFragment_MTV_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_RL"
+                android:layout_below="@id/ShowPetInfoFragment_MTV_nameOwner"
+                android:text="phone: +972526211111"
+                android:textSize="@dimen/stringSize"
+                android:textStyle="bold"
+                app:fontFamily="@font/inter_medium">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ShowPetInfoFragment_MTV_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_RL"
+                android:layout_below="@id/ShowPetInfoFragment_MTV_phone"
+                android:text="@string/sam_a_very_cute_cat_is_looking_for_a_good_bath_so_he_can_feel_at_home_and_also_be_the_cleanest"
+                android:textSize="@dimen/stringSize"
+                android:textStyle="bold"
+                app:fontFamily="@font/inter_medium">
+
+            </com.google.android.material.textview.MaterialTextView>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,24 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.barberFragments.reviewsBarberScreenFragment">
+    tools:context=".fragments.barberFragments.ReviewsBarberScreenFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/reviewsBarberScreenFragment_MTV_tile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="reviews for "
-        android:textSize="@dimen/title_size"
-        android:textStyle="bold"
-        app:fontFamily="@font/inter_medium"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/SmallSpace"
-        ></com.google.android.material.textview.MaterialTextView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviewsBarberScreenFragment_RV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/reviewsBarberScreenFragment_MTV_tile"
         android:layout_marginTop="@dimen/SmallSpace"
         tools:listitem="@layout/review_item"
         />

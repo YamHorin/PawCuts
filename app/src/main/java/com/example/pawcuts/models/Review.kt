@@ -3,13 +3,23 @@ package com.example.pawcuts.models
 data class Review private constructor(
     val name:String,
     val rating:Float,
-    val reviewTxt:String
+    val reviewTxt:String,
+    var isCollapsed: Boolean = true
+
+
 )
 {
+    //empty constructor
+    constructor() : this(
+        name ="",
+        reviewTxt = "",
+        rating = 0.0F
+    )
+    fun toggleCollapse() = apply { this.isCollapsed = !isCollapsed }
     class Builder(
-        var name:String,
-        var rating:Float,
-        var reviewTxt:String
+        var name:String ="",
+        var rating:Float = 0.0F,
+        var reviewTxt:String =""
     )
     {
         fun name (name: String) =apply {this.name = name}

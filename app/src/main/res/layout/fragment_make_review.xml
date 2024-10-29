@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.petOwnerFragments.appointmentFragments.makeReviewFragment"
+    tools:context=".fragments.appointmentFragments.MakeAReviewFragment"
     android:background="@color/white">
 
    <LinearLayout
@@ -35,7 +35,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/SingUpMoreDetailsFragment_TIL_MoreInfo"
+        android:id="@+id/makeReviewFragment_TIL_textReview"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
         android:layout_marginHorizontal="@dimen/SmallSpace"
@@ -47,7 +47,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/SingUpMoreDetailsFragment_TIET_MoreInfo"
+            android:id="@+id/makeReviewFragment_TIEL_textReview"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -56,7 +56,7 @@
     </com.google.android.material.textfield.TextInputLayout>
    </LinearLayout>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/LoginActivity_BUTTON_SingIn"
+        android:id="@+id/makeReviewFragment_Save"
         android:layout_width="@dimen/Button_Login_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/SmallSpace"
