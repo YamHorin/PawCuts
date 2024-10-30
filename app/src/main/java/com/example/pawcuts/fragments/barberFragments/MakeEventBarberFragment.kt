@@ -35,6 +35,7 @@ class MakeEventBarberFragment : Fragment() ,InterfaceFragments {
         return  getDateFromStr(binding.MakeEventBarberFragmentTIETDate.text.toString())
     }
     fun getEvents(): MutableList<AppointmentBarber> {
+        checkUserInput()
         val startTime:Int = binding.MakeEventBarberFragmentTIETStartTime.text.toString().substring(0,2).toInt()
         var finishTime:Int = binding.MakeEventBarberFragmentTIETFinishTime.text.toString().substring(0,2).toInt()
         if (binding.MakeEventBarberFragmentTIETFinishTime.text.toString().substring(3,5).toInt()>0)

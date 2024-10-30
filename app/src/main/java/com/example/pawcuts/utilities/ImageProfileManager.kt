@@ -38,34 +38,37 @@ class ImageProfileManager private constructor(context: Context){
     }
     fun uploadImage(userName: String, uri: Uri)
     {
-        uploadImageProcess(userName , uri)
-    }
-     private  fun uploadImageProcess(userName: String, uri: Uri){
-        val ref = createReference(userName)
-        Log.d("uploadImageFUNCTION", "Reference: $ref")
-        val uploadTask = ref.putFile(uri)
-        val urlTask = uploadTask.continueWithTask { task ->
-            if (!task.isSuccessful) {
-                task.exception?.let {
-                    Log.d("uploadImageFUNCTION", "task upload .exception: $task.exception")
-                    throw it
+        if (uri!=Uri.EMPTY)
+        {
+
+            val ref = createReference(userName)
+            Log.d("uploadImageFUNCTION", "Reference: $ref")
+            val uploadTask = ref.putFile(uri)
+            val urlTask = uploadTask.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        Log.d("uploadImageFUNCTION", "task upload .exception: $task.exception")
+                        throw it
+                    }
+                }
+                ref.downloadUrl
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("uploadImageFUNCTION", "task downloadUrl : ${task.result}")
+                    callBackUploadImage?.onSuccess(task.result.toString())
+                } else {
+                    Log.d("uploadImageFUNCTION", "task downloadUrl .exception: $task.exception")
+                    task.exception?.let { callBackUploadImage?.onFailure(it) }
                 }
             }
-            ref.downloadUrl
-        }.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Log.d("uploadImageFUNCTION", "task downloadUrl : ${task.result}")
-                callBackUploadImage?.onSuccess(task.result.toString())
-            } else {
-                Log.d("uploadImageFUNCTION", "task downloadUrl .exception: $task.exception")
-                task.exception?.let { callBackUploadImage?.onFailure(it) }
-            }
         }
-
     }
+
 
     fun getImageURL(uid: String) {
         val ref = createReference(uid)
+        if (uid=="" || uid==Uri.EMPTY.toString())
+            return
         ref.downloadUrl.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("uploadImageFUNCTION", "task downloadUrl : ${task.result}")

@@ -1,7 +1,7 @@
 package com.example.pawcuts.models
 
 data class Review private constructor(
-    val name:String,
+    var name:String,
     val rating:Float,
     val reviewTxt:String,
     var isCollapsed: Boolean = true

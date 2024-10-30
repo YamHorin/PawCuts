@@ -24,6 +24,7 @@ import com.example.pawcuts.interfaces.CallBackGoogleMapAndBarberCard
 import com.example.pawcuts.interfaces.CallBackMenuPetOwnerButtonsPress
 import com.example.pawcuts.interfaces.CallBackShowBarberCardAndFavoriteBarber
 import com.example.pawcuts.interfaces.CallBackUpdateProfile
+import com.example.pawcuts.interfaces.CallBackUploadImage
 import com.example.pawcuts.models.Barber
 import com.example.pawcuts.models.PetOwner
 import com.example.pawcuts.models.UserType
@@ -94,6 +95,7 @@ class PetOwnerActivity : AppCompatActivity() {
         }
 
     private fun initViews() {
+        requestLocationFromUser()
 
         supportFragmentManager.beginTransaction().add(R.id.PetOwnerActivity_FRAME_top , calenderOfThePetOwnerFragment).commit()
         supportFragmentManager.beginTransaction().add(R.id.PetOwnerActivity_FRAME_down ,menuPetOwnerFragment ).commit()
@@ -121,6 +123,7 @@ class PetOwnerActivity : AppCompatActivity() {
 
             override fun barbers() {
                 findPetBarbersFragment = FindPetBarbersFragment.init(gson.fromJson(petOwnerObj.location,LatLng::class.java),uid )
+                findPetBarbersFragment.callBackMap = callBackMap
                 supportFragmentManager.beginTransaction().replace(R.id.PetOwnerActivity_FRAME_top,findPetBarbersFragment).commit()
             }
 
@@ -189,6 +192,16 @@ class PetOwnerActivity : AppCompatActivity() {
             }
 
         }
+        imageManager.callBackUploadImage = object : CallBackUploadImage {
+            override fun onSuccess(downloadUrl: String) {
+                dataUsersManager.updateProfilePhotoUser(uid , UserType.petOwner , downloadUrl)
+            }
+
+            override fun onFailure(exception: Exception) {
+                Toast.makeText(this@PetOwnerActivity , "upload profile photo failed" ,Toast.LENGTH_SHORT).show()
+            }
+
+        }
         favoritesFragment.callBackMap = callBackMap
         findPetBarbersFragment.callBackMap = callBackMap
     }
@@ -250,7 +263,7 @@ class PetOwnerActivity : AppCompatActivity() {
                         locationCurrent = LatLng(location.latitude, location.longitude)
                         Log.d("locationCurrent", "Location: $locationCurrent") // Log the location
                         petOwnerObj.location = gson.toJson(locationCurrent)
-                        dataUsersManager.updateLocationUser(petOwnerObj.uidFireBase , UserType.petOwner , petOwnerObj.location)
+                        dataUsersManager.updateLocationUser(uid , UserType.petOwner , petOwnerObj.location)
 
                     } else {
                         Log.d("locationCurrent", "****error could get location locationCurrent =null")

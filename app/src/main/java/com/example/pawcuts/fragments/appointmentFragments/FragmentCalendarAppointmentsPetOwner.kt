@@ -1,5 +1,6 @@
 package com.example.pawcuts.fragments.appointmentFragments
 
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -80,7 +81,11 @@ class FragmentCalendarAppointmentsPetOwner :Fragment() {
             }
 
         }
-
+        val calendar: Calendar=Calendar.getInstance()
+        val currentYear = calendar.get(Calendar.YEAR)
+        val currentMonth = calendar.get(Calendar.MONTH) + 1 // Months are 0-based in Calendar
+        val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
+        updateEvents(currentYear, currentMonth, currentDay)
         return binding.root
     }
     fun updateEvents(currentYear:Int, currentMonth:Int, currentDay:Int)

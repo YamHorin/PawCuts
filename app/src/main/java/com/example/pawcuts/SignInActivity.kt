@@ -101,10 +101,16 @@ class SignInActivity: AppCompatActivity() {
 
 
     private fun singInUser() {
-        Log.d("singInUser","start here")
-        val userEmail  = binding.SignInActivityTILEmail.getEditText()?.getText().toString();
-        val userPassword = binding.SignInActivityTILPassword.getEditText()?.getText().toString();
-        accountManager.signInUserEmailPassword(userEmail ,userPassword,this)
+        try{
+            Log.d("singInUser","start here")
+            val userEmail  = binding.SignInActivityTILEmail.getEditText()?.getText().toString();
+            val userPassword = binding.SignInActivityTILPassword.getEditText()?.getText().toString();
+            accountManager.signInUserEmailPassword(userEmail ,userPassword,this)
+        }
+        catch (e:IllegalArgumentException){
+            Toast.makeText(this ,"wrong password/email" , Toast.LENGTH_SHORT).show()
+        }
+
 
 
 

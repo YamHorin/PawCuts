@@ -24,6 +24,7 @@ class MakeAReviewFragment : Fragment(),InterfaceFragments {
         return binding.root
     }
     fun getUserInput(): Review {
+        checkUserInput()
         return Review.Builder()
             .name(name)
             .reviewTxt(binding.makeReviewFragmentTIELTextReview.text.toString())
@@ -32,8 +33,10 @@ class MakeAReviewFragment : Fragment(),InterfaceFragments {
     }
 
     override fun checkUserInput() {
-        if (binding.makeReviewFragmentTIETRating.text.toString() == "" ||binding.makeReviewFragmentTIELTextReview.text.toString()=="")
+        if (binding.makeReviewFragmentTIETRating.text.toString() == "" ||binding.makeReviewFragmentTIELTextReview.text.toString()==""
+            || binding.makeReviewFragmentTIETRating.text.toString().toFloat()<0 ||binding.makeReviewFragmentTIETRating.text.toString().toFloat()>5)
             throw IllegalArgumentException()
+
     }
 
 

@@ -102,6 +102,9 @@ class SignUpAllUsersActivity : AppCompatActivity() {
         accountManager.callBackSignIn = object :CallBackSignIn {
 
             override fun success() {
+                uidUser = accountManager.getUidCurrentUser()
+                makeRefConnectionIntoDataBaseAndCalendar(userType)
+
                 Log.d("callBackSignIn ", "sign in: success")
             }
 
@@ -192,6 +195,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
 
         imageProfileManager.callBackUploadImage = object : CallBackUploadImage {
             override fun onSuccess(downloadUrl: String) {
+
                 dataUsersManager.updateProfilePhotoUser(uidUser,userType ,downloadUrl )
             }
 
@@ -330,10 +334,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
     {
         when(type)
         {
-            UserType.petOwner ->
-            {
-            dataUsersManager.makeRefConnectionPetOwner(uidUser)
-            }
+            UserType.petOwner -> dataUsersManager.makeRefConnectionPetOwner(uidUser)
             UserType.petBarber -> dataUsersManager.makeRefConnectionBarber(uidUser)
             UserType.none -> return
         }
@@ -358,8 +359,6 @@ class SignUpAllUsersActivity : AppCompatActivity() {
                     //dataUsersManager.makeListBarbers()
                     emailUser = email
                     accountManager.signUpUserEmailPassword(email, password , this)
-                    uidUser = accountManager.getUidCurrentUser()
-                    makeRefConnectionIntoDataBaseAndCalendar(userType)
 
                 }catch (e:Exception)
                 {
@@ -375,13 +374,7 @@ class SignUpAllUsersActivity : AppCompatActivity() {
             SignUpPhases.GoogleAccount -> {
                 signUpGoogleFragment.checkUserInput()
                 userType = signUpGoogleFragment.getUserType()
-                when(userType)
-                {
-                    UserType.petBarber ->  dataUsersManager.makeRefConnectionBarber(uidUser)
-                    UserType.petOwner ->  dataUsersManager.makeRefConnectionPetOwner(uidUser)
-                    UserType.none -> return
-
-                }
+                uidUser = accountManager.getUidCurrentUser()
                 makeRefConnectionIntoDataBaseAndCalendar(userType)
 
             }

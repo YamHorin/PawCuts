@@ -29,6 +29,38 @@ class AnimationActivity : AppCompatActivity() {
         Log.d("updateUi", animation)
 
         when (animation) {
+
+            "event Barber"->
+            {
+                uid = bundle?.getString(Constants.KEYS.UID_KEY).toString()
+                animationView.setAnimation(R.raw.calender)
+                AnimationActivity_MTV.text = buildString { append( "calender updated") }
+                animationView.resumeAnimation()
+                animationView.addAnimatorListener(object : Animator.AnimatorListener {
+                    override fun onAnimationStart(animation: Animator) {
+                        // pass
+                    }
+
+                    override fun onAnimationEnd(animation: Animator) {
+                        val intent = Intent(this@AnimationActivity, BarberActivity::class.java);
+                        val bundle = Bundle()
+                        bundle.putString(Constants.KEYS.UID_KEY, uid)
+                        Log.d("updateUi", uid)
+                        intent.putExtras(bundle)
+                        startActivity(intent)
+                        finish()
+                    }
+
+                    override fun onAnimationCancel(animation: Animator) {
+                        //pass
+                    }
+
+                    override fun onAnimationRepeat(animation: Animator) {
+                        //pass
+                    }
+
+                })
+            }
             "calendar event" -> {
                 uid = bundle?.getString(Constants.KEYS.UID_KEY).toString()
                 animationView.setAnimation(R.raw.calender)

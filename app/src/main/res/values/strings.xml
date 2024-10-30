@@ -21,7 +21,6 @@
 
     <string name="submit">submit</string>
     <string name="if_you_don_t_have_a_account_sign_up_now">if you don\'t have an account, sign up now\n</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">next</string>
     <string name="i_am_a_pet_barber">i am a pet barber</string>

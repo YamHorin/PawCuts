@@ -23,7 +23,6 @@ import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 
-//TODO: add google maps
 class MapsFragment : Fragment() {
     private var listBarbers: List<Barber> = emptyList()
     private lateinit var googleMapObj: GoogleMap

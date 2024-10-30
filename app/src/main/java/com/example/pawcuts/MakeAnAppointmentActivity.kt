@@ -94,11 +94,19 @@ class MakeAnAppointmentActivity : AppCompatActivity() {
 
         callBackMakeReview = object :CallBackMakeReview{
             override fun insert() {
-                val review:Review = makeReviewFragment.getUserInput()
-                dataUsersManager.putNewReviewForBarber(currentBarber.uidFireBase , review)
-                Toast.makeText(this@MakeAnAppointmentActivity , "The review was successfully entered" , Toast.LENGTH_SHORT).show()
-                supportFragmentManager.beginTransaction().replace(R.id.MakeANAppointment_FRAME_down,reviewsFragment).commit()
+                try{
+                    val review:Review = makeReviewFragment.getUserInput()
+                    review.name = currentPetOwner.name
+                    dataUsersManager.putNewReviewForBarber(currentBarber.uidFireBase , review)
+                    Toast.makeText(this@MakeAnAppointmentActivity , "The review was successfully entered" , Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction().replace(R.id.MakeANAppointment_FRAME_down,reviewsFragment).commit()
+                }
+                catch (e:Exception)
+                {
+                    Log.d("insertReview" , e.message.toString())
+                    Toast.makeText(this@MakeAnAppointmentActivity , "Please follow the instructions.",Toast.LENGTH_SHORT).show()
 
+                }
             }
 
 

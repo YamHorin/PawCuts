@@ -47,7 +47,7 @@ class DataUsersManager private constructor(context: Context) {
     }
 
     fun writeNewUserPetOwnerDataBase(petOwner: PetOwner): DatabaseReference {
-        val ref: DatabaseReference = database.getReference(makeRefName(petOwner.uidFireBase))
+        val ref: DatabaseReference = database.getReference(petOwner.uidFireBase)
         ref.setValue(petOwner)
         return ref
     }
@@ -65,7 +65,7 @@ class DataUsersManager private constructor(context: Context) {
 
         if (userType == UserType.petBarber)
             return referenceListBarbers.child(uidUser)
-        return database.getReference(makeRefName(uidUser))
+        return database.getReference(uidUser)
 
     }
 
@@ -74,15 +74,12 @@ class DataUsersManager private constructor(context: Context) {
     }
 
     fun makeRefConnectionPetOwner(uidFireBase: String) {
-        database.getReference(makeRefName(uidFireBase))
+        database.getReference(uidFireBase)
     }
 
 
 
 
-    private fun makeRefName(uidUser: String): String {
-        return uidUser
-    }
 
     fun updateMoreDetailsUser(uidUser: String, userType: UserType, moreDetailsText: String) {
         val ref = makeConnectionDatabaseRef(uidUser, userType)

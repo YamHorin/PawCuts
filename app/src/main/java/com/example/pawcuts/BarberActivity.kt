@@ -213,19 +213,27 @@ class BarberActivity : AppCompatActivity() {
 
 
             override fun AddEventBarberScreen() {
-                val arrDate:ArrayList<Int> = makeEventBarberFragment.getUserDate()
-                val events=  makeEventBarberFragment.getEvents()
-                for (event in events)
-                    calendarManager.createEventInPetBarberCalendar(uidBarber , year = arrDate[2] , month= arrDate[1] , day = arrDate[0] , event)
-                val intent = Intent(this@BarberActivity, AnimationActivity::class.java);
-                val bundle = Bundle()
-                val key:String = "event Barber"
-                bundle.putString(Constants.KEYS.ANIMATION_KEY, key)
-                bundle.putString(Constants.KEYS.UID_KEY, barber.uidFireBase)
-                Log.d("updateUi" ,key)
-                intent.putExtras(bundle)
-                startActivity(intent)
-                finish()
+                try{
+
+                    val arrDate:ArrayList<Int> = makeEventBarberFragment.getUserDate()
+                    val events=  makeEventBarberFragment.getEvents()
+                    for (event in events)
+                        calendarManager.createEventInPetBarberCalendar(uidBarber , year = arrDate[2] , month= arrDate[1] , day = arrDate[0] , event)
+                    val intent = Intent(this@BarberActivity, AnimationActivity::class.java);
+                    val bundle = Bundle()
+                    val key:String = "event Barber"
+                    bundle.putString(Constants.KEYS.ANIMATION_KEY, key)
+                    bundle.putString(Constants.KEYS.UID_KEY, barber.uidFireBase)
+                    Log.d("updateUi" ,key)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                    finish()
+                }
+                catch (e:Exception)
+                {
+                    Log.d("AddEventBarberScreen" , e.message.toString())
+                    Toast.makeText(this@BarberActivity , "Please follow the instructions.",Toast.LENGTH_SHORT).show()
+                }
             }
 
 

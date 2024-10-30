@@ -37,7 +37,7 @@ class CalendarBarberAdapter (
                     binding.appointmentItemBarberMTVName.text  = "$namePet (cat and dog)"
                     binding.appointmentItemBarberMTVName.textSize = 20F
                     }
-                    PetOwnerType.none -> namePet
+                    PetOwnerType.none -> binding.appointmentItemBarberMTVName.text = namePet
                 }
                 binding.reviewCVData.setOnClickListener{
                     callBackShowPetInfocardAndCreateEventBarberScreen?.showInfo(this)
