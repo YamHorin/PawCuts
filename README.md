@@ -56,6 +56,7 @@ git clone https://github.com/YamHorin/PawCuts.git
 
 ## video demo (Hebrew)🎬
 
+https://github.com/user-attachments/assets/3b21f8fb-86de-4adc-b7fa-b06b3b789504
 
 
   
