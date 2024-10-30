@@ -12,6 +12,7 @@ import com.example.pawcuts.R
 import com.example.pawcuts.adapters.ChooseTimeAdapter
 import com.example.pawcuts.databinding.FragmentCalendarAppointmentsPetOwnerBinding
 import com.example.pawcuts.interfaces.CallBackFireStoreResultBarber
+import com.example.pawcuts.interfaces.CallBackFireStoreResultPetOwner
 import com.example.pawcuts.interfaces.CallBackMakeAppointment
 import com.example.pawcuts.models.AppointmentBarber
 import com.example.pawcuts.models.Barber
@@ -81,6 +82,35 @@ class FragmentCalendarAppointmentsPetOwner :Fragment() {
             }
 
         }
+        calendarManager.callBackFireStoreResultPetOwner = object : CallBackFireStoreResultPetOwner
+        {
+            override fun showEvents(result: QuerySnapshot) {
+                val listEvents = mutableListOf<AppointmentBarber>()
+                for (document in result.documents)
+                {
+                    listEvents.add(
+                        AppointmentBarber.Builder()
+                            .nameOwner(document.getString("owner").toString())
+                            .type(calendarManager.makeTypeFromStrType(document.getString("type").toString()))
+                            .time(document.getString("time").toString())
+                            .namePet(document.getString("name").toString())
+                            .infoAboutThePet(document.getString("info").toString())
+                            .phone(document.getString("phone").toString())
+                            .uidFireBasePetOwner(document.getString("uidPetOwner").toString())
+                            .builder()
+                    )
+                }
+                adapter.listAppointmentsUser = listEvents
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun noEvents() {
+                TODO("Not yet implemented")
+            }
+
+        }
+
+
         val calendar: Calendar=Calendar.getInstance()
         val currentYear = calendar.get(Calendar.YEAR)
         val currentMonth = calendar.get(Calendar.MONTH) + 1 // Months are 0-based in Calendar
@@ -93,6 +123,7 @@ class FragmentCalendarAppointmentsPetOwner :Fragment() {
         adapter.currentDay = currentDay
         adapter.currentMonth = currentMonth
         adapter.currentYear =currentYear
+        calendarManager.getEventsFromCalendarPetOwner(petOwner.uidFireBase,currentYear ,currentMonth ,currentDay)
         calendarManager.getEventsFromCalendarBarber(barber.uidFireBase ,currentYear ,currentMonth ,currentDay)
     }
 

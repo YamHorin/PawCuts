@@ -17,6 +17,7 @@ class ChooseTimeAdapter: RecyclerView.Adapter<ChooseTimeAdapter.CardViewHolder>(
     var currentYear = 0
     var currentMonth = 0
     var currentDay = 0
+    var listAppointmentsUser:List<AppointmentBarber> = emptyList()
     var listAppointments:List<AppointmentBarber> = emptyList()
     inner class CardViewHolder(val binding:CalendarItemPetOwnerScreenBinding) :
         RecyclerView.ViewHolder(binding.root){
@@ -64,10 +65,16 @@ class ChooseTimeAdapter: RecyclerView.Adapter<ChooseTimeAdapter.CardViewHolder>(
         val listHoursStr = mutableListOf<String>()
         for (i in 8..21)
         {
-            listHoursStr.add("$i:00-${i+1}:00")
+            listHoursStr.add("$i:00 - ${i+1}:00")
             listHoursInt.add(i)
         }
         for (appointment in listAppointments)
+        {
+            val num = findIndexInList((appointment.time) ,listHoursStr)
+            listHoursInt.removeAt(num)
+            listHoursStr.removeAt(num)
+        }
+        for (appointment in listAppointmentsUser)
         {
             val num = findIndexInList((appointment.time) ,listHoursStr)
             listHoursInt.removeAt(num)

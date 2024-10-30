@@ -91,6 +91,7 @@ class CalendarManager private constructor(context: Context) {
     }
     fun createEventInPetBarberCalendar(uidFireBaseBarber:String , year:Int , month:Int,day:Int,event:AppointmentBarber)
     {
+
         db.collection("PetBarbers").document(uidFireBaseBarber).collection("$day.$month.$year").document(event.time).delete()
         val data = hashMapOf(
             "time" to event.time,
