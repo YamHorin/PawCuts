@@ -18,9 +18,9 @@ show the barbers that close to your location (using google map) |have personal p
 ## Technology Stack <a href="https://developer.android.com/studio" target="_blank"><img style="margin: 15px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Android_Studio_Logo_%282023%29.svg/800px-Android_Studio_Logo_%282023%29.svg.png" alt="android studio" height="50" /></a>   <a href="https://kotlinlang.org/" target="_blank"><img style="margin: 15px" src="https://profilinator.rishav.dev/skills-assets/kotlinlang-icon.svg" alt="kotlin" height="50" /></a><a href="https://firebase.google.com/" target="_blank"><img style="margin: 15px" src="https://w7.pngwing.com/pngs/398/821/png-transparent-firebase-google-google-i-o-icon.png" alt="android studio" height="60" /></a>  
 
 
-* andriod studio
+* android studio
 
-* kotlin (programming)
+* kotlin 
 
 * Firebase Authentication for  authentication users
 
@@ -52,11 +52,8 @@ git clone https://github.com/YamHorin/PawCuts.git
     -   Connect an Android device or start an emulator.
     -   Build and run the project from Android Studio.
 
-## video demo (english)🎬
-
-## video demo (Hebrew)🎬
-
-https://github.com/user-attachments/assets/3b21f8fb-86de-4adc-b7fa-b06b3b789504
+## video demo 🎬
+https://github.com/user-attachments/assets/b8ef7755-cfee-42ee-a85c-57c53d19e313
 
 
   
