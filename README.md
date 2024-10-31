@@ -52,7 +52,7 @@ git clone https://github.com/YamHorin/PawCuts.git
     -   Connect an Android device or start an emulator.
     -   Build and run the project from Android Studio.
 
-## video demo 🎬
+## demo video 🎬
 
 
 https://github.com/user-attachments/assets/05be8550-78b6-4693-a6e5-08ed656cfb38
