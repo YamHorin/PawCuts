@@ -53,7 +53,7 @@ git clone https://github.com/YamHorin/PawCuts.git
     -   Build and run the project from Android Studio.
 
 ## video demo 🎬
- <a href="https://www.youtube.com/watch?v=UZY0Qqf2TFY" target="_blank"><img style="margin: 15px" src="https://i.imgur.com/S5cQspv.png" alt="android studio" height="260" /></a>  
+ <a href="https://www.youtube.com/watch?v=UZY0Qqf2TFY" target="_blank"><img style="margin: 15px" src="https://i.imgur.com/0QhVxOu.png" alt="android studio" height="260" /></a>  
 
 
   
